@@ -7,8 +7,10 @@ WORKDIR /app
 # Copia el archivo de compilación de tu proyecto al contenedor
 COPY . /app
 
+RUN chmod +x mvnw
+
 # Compila tu proyecto (por ejemplo, usando Maven)
 RUN ./mvnw package
 
 # Comando para ejecutar tu aplicación
-CMD ["java", "-jar", "target/tu-aplicacion.jar"]
+CMD ["java", "-jar", "target/StockMasterApi.jar"]
