@@ -1,7 +1,14 @@
-FROM openjdk:17-jre-slim
+# Usa una imagen base con el JDK 17
+FROM openjdk:17-jdk-alpine
 
+# Establece el directorio de trabajo dentro del contenedor
 WORKDIR /app
 
-COPY ./StockMasterApi.jar .
+# Copia el archivo de compilación de tu proyecto al contenedor
+COPY . /app
 
-CMD ["java", "-jar", "StockMasterApi.jar"]
+# Compila tu proyecto (por ejemplo, usando Maven)
+RUN ./mvnw package
+
+# Comando para ejecutar tu aplicación
+CMD ["java", "-jar", "target/tu-aplicacion.jar"]
