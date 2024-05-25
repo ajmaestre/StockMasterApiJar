@@ -1,12 +1,16 @@
+# Utiliza una imagen base con el JDK 17
 FROM openjdk:17-jdk-alpine
 
+# Establece el directorio de trabajo dentro del contenedor
 WORKDIR /app
 
-# Copia los archivos JAR de las bibliotecas Jackson al contenedor
 COPY lib/* /app/lib/
 
-# Copia todos los archivos Java de tu proyecto al contenedor
-COPY src /app/src
+# Copia todos los archivos de tu proyecto al contenedor
+COPY ./src /app
 
-# Compila tu proyecto con las bibliotecas Jackson incluidas
-RUN javac -cp "lib/*" src/*.java
+# Compila tus archivos Java (sustituye 'Main' por el nombre de tu clase principal)
+RUN javac -cp "lib/*" main/java/com/engineerds/stockmaster/Main.java
+
+# Comando para ejecutar tu aplicación
+CMD ["java", "main.java.com.engineerds.stockmaster.Main"]
