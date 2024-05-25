@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Compila tus archivos Java (sustituye 'Main' por el nombre de tu clase principal)
-RUN javac app/src/main/java/com/engineerds/stockmaster/Main.java
+RUN javac src/main/java/com/engineerds/stockmaster/Main.java
 
 # Comando para ejecutar tu aplicación
-CMD ["java", "main.java.com.engineerds.stockmaster.Main"]
+CMD ["java", "src.main.java.com.engineerds.stockmaster.Main"]
