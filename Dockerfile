@@ -1,16 +1,14 @@
-# Usa una imagen base con el JDK 17
+# Utiliza una imagen base con el JDK 17
 FROM openjdk:17-jdk-alpine
 
 # Establece el directorio de trabajo dentro del contenedor
 WORKDIR /app
 
-# Copia el archivo de compilación de tu proyecto al contenedor
+# Copia todos los archivos de tu proyecto al contenedor
 COPY . /app
 
-RUN chmod +x mvnw
-
-# Compila tu proyecto (por ejemplo, usando Maven)
-RUN ./mvnw package
+# Compila tus archivos Java (sustituye 'Main' por el nombre de tu clase principal)
+RUN javac src/main/java/com/engineerds/stockmaster/Main.java
 
 # Comando para ejecutar tu aplicación
-CMD ["java", "-jar", "target/StockMasterApi.jar"]
+CMD ["java", "main.java.com.engineerds.stockmaster.Main"]
